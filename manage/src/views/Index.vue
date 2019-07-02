@@ -1,5 +1,5 @@
 <template>
-  <a-layout id="components-layout-demo-custom-trigger">
+  <a-layout id="index-box">
     <a-layout-sider class="slider" :trigger="null" collapsible v-model="collapsed">
       <div class="logo">OpenCoder管理系统</div>
       <a-menu class="menu" theme="dark" mode="inline" :defaultSelectedKeys="['1']">
@@ -34,11 +34,22 @@
     </a-layout-sider>
     <a-layout>
       <a-layout-header class="header">
-        <a-icon
-          class="trigger"
-          :type="collapsed ? 'menu-unfold' : 'menu-fold'"
-          @click="()=> collapsed = !collapsed"
-        />
+        <div class="trigger-box">
+          <a-icon
+            class="trigger"
+            :type="collapsed ? 'menu-unfold' : 'menu-fold'"
+            @click="()=> collapsed = !collapsed"
+          />
+          <div class="title">
+            首页
+          </div>
+        </div>
+        <div class="user-icon">
+          <a-avatar icon="user"/>
+          <div class="user-name">
+            yusong
+          </div>
+        </div>
       </a-layout-header>
       <a-layout-content
         class="content"
@@ -60,23 +71,49 @@ export default {
 </script>
 
 <style lang="less">
-#components-layout-demo-custom-trigger .header {
-  background-color: #0E2E5A;
+#index-box .header {
+  background-color: #0e2e5a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-#components-layout-demo-custom-trigger .trigger {
+#index-box .trigger-box {
+  display: flex;
+  background-color: #fff;
+  height: 30px;
+}
+
+#index-box .user-icon {
+  display: flex;
+  align-items: center;
+}
+
+#index-box .user-icon .user-name {
+  color: #fff;
+  padding: 0 15px;
+}
+
+#index-box .trigger-box .title {
+  line-height: 30px;
+  color: #A7B3C4;
+  padding: 0 15px;
+}
+
+#index-box .trigger {
   font-size: 14px;
-  line-height: 35px;
-  padding: 0 24px;
+  line-height: 30px;
+  padding: 0 15px;
   cursor: pointer;
   transition: color 0.3s;
+  color: black;
 }
 
-#components-layout-demo-custom-trigger .trigger:hover {
+#index-box .trigger:hover {
   color: #061a36;
 }
 
-#components-layout-demo-custom-trigger .logo {
+#index-box .logo {
   font-size: 14px;
   color: #fff;
   height: 32px;
